@@ -1,0 +1,19 @@
+name: ENV Demo
+
+on: [push]
+
+jobs:
+  env-test:
+    runs-on: ubuntu-latest
+
+    env:
+      APP_ENV: test   # to set env var as test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run shell script
+        run: |
+          chmod +x env-demo.sh
+          ./env-demo.sh
